@@ -1,2 +1,4 @@
-res://main.tscn
+res://dev.tscn
 res://theme.tres
+res://YamlParser.gd
+res://main.tscn
