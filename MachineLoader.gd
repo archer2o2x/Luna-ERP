@@ -5,15 +5,6 @@ var dataPath = ""
 
 func _ready():
 	dataPath = DataManagerObj.loadDict()["dataPath"]
-	
-	var machines = [
-		{ name= "doosan_xls_4000", type= "machine" },
-		{ name= "arctec_bolt_870", type= "machine" },
-		{ name= "spinner_4500_type_m", type= "machine" },
-		{ name= "polnog_M585", type= "machine" }
-	]
-	
-	#saveMachines(machines)
 	print(loadMachines())
 
 func loadMachines():

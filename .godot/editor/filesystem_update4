@@ -4,3 +4,5 @@ res://dev.tscn
 res://DataManager.gd
 res://GetDataDirectory.gd
 res://MachineLoader.gd
+res://machineData.tscn
+res://Scripts/machineData.gd
