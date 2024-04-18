@@ -7,12 +7,11 @@ func read(string):
 	var result = {}
 	var token = ""
 	
-	string.replace("\t", " ")
 	string.replace("  ", " ")
 	
 	
 	for i in range(len(string)):
-		if string[i] == "\n" or string[i] == " ":
+		if string[i] == "\n" or string[i] == " " or string[i] == "\t":
 			print(token)
 			token = ""
 		else:

@@ -1,3 +1,6 @@
+Node
+Button
+FileDialog
 LineEdit
 Label
 VBoxContainer
@@ -9,6 +12,3 @@ Panel
 HSplitContainer
 TabContainer
 TabBar
-CanvasLayer
-Camera2D
-PopupMenu
