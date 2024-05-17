@@ -1,9 +1,10 @@
-Panel
-VBoxContainer
-TextureRect
-Label
 Node
 Button
+Label
+VBoxContainer
+VFlowContainer
+Panel
+TextureRect
 FileDialog
 LineEdit
 ScrollContainer
@@ -11,4 +12,3 @@ GridContainer
 HFlowContainer
 Container
 HSplitContainer
-TabContainer

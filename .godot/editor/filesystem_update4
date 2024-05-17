@@ -1,8 +1,5 @@
 res://main.tscn
 res://theme.tres
 res://dev.tscn
-res://DataManager.gd
-res://GetDataDirectory.gd
-res://MachineLoader.gd
 res://machineData.tscn
-res://Scripts/machineData.gd
+res://MachineLoader.gd

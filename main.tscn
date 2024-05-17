@@ -19,12 +19,10 @@ corner_radius_bottom_left = 2
 corner_detail = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmyxd"]
-content_margin_left = 10.0
+content_margin_left = 0.0
 content_margin_top = 0.0
-content_margin_right = 10.0
+content_margin_right = 0.0
 content_margin_bottom = 0.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pe81"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bddu"]
 content_margin_left = 10.0
@@ -35,6 +33,21 @@ bg_color = Color(0.1, 0.1, 0.1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_asvcl"]
 font_size = 48
+
+[sub_resource type="GDScript" id="GDScript_33hu3"]
+script/source = "extends Node
+
+@onready var DataManagerObj = $\"..\" as DataManager
+
+
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="Window" type="CanvasLayer"]
 
@@ -111,50 +124,24 @@ grow_vertical = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Machines/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hmyxd")
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="HFlowContainer" parent="TabContainer/Machines/HSplitContainer/ScrollContainer"]
+[node name="GridContainer" type="VBoxContainer" parent="TabContainer/Machines/HSplitContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
 
-[node name="Panel" type="Panel" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(250, 250)
+[node name="Label" type="Button" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6pe81")
-
-[node name="Panel2" type="Panel" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6pe81")
-
-[node name="Panel3" type="Panel" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6pe81")
-
-[node name="Panel4" type="Panel" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6pe81")
-
-[node name="Panel5" type="Panel" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6pe81")
-
-[node name="Panel6" type="Panel" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6pe81")
+theme_override_font_sizes/font_size = 32
+text = "Doosan XLS 500"
 
 [node name="Panel" type="ScrollContainer" parent="TabContainer/Machines/HSplitContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6bddu")
 horizontal_scroll_mode = 0
 
@@ -218,6 +205,9 @@ script = ExtResource("2_8in6r")
 
 [node name="MachineLoader" type="Node" parent="DataManager"]
 script = ExtResource("3_ruxty")
+
+[node name="MachinePopulator" type="Node" parent="DataManager"]
+script = SubResource("GDScript_33hu3")
 
 [connection signal="button_down" from="TabContainer/Machines/Label2" to="DataManager/GetDataDirectory" method="onOpenDialog"]
 [connection signal="dir_selected" from="DataManager/GetDataDirectory" to="DataManager/GetDataDirectory" method="onGetResult"]

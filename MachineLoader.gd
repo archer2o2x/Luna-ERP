@@ -5,7 +5,9 @@ var dataPath = ""
 
 func _ready():
 	dataPath = DataManagerObj.loadDict()["dataPath"]
-	print(loadMachines())
+	var machines = loadMachines();
+	for machine in machines:
+		pass
 
 func loadMachines():
 	var dir = DirAccess.open(dataPath)
