@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ycvl0jxtu2y3"]
+
+[node name="Label" type="Control"]
+custom_minimum_size = Vector2(20, 65)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 251.0
+offset_bottom = 65.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Doosan XLS 4000"

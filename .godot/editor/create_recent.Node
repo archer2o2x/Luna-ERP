@@ -1,5 +1,6 @@
-Node
 Button
+Control
+Node
 Label
 VBoxContainer
 VFlowContainer
@@ -11,4 +12,3 @@ ScrollContainer
 GridContainer
 HFlowContainer
 Container
-HSplitContainer

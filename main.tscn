@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://DataManager.gd" id="1_o7new"]
 [ext_resource type="Script" path="res://GetDataDirectory.gd" id="2_8in6r"]
 [ext_resource type="Script" path="res://MachineLoader.gd" id="3_ruxty"]
+[ext_resource type="Script" path="res://MachinePopulator.gd" id="4_exya6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r6v4m"]
 font_size = 24
@@ -33,21 +34,6 @@ bg_color = Color(0.1, 0.1, 0.1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_asvcl"]
 font_size = 48
-
-[sub_resource type="GDScript" id="GDScript_33hu3"]
-script/source = "extends Node
-
-@onready var DataManagerObj = $\"..\" as DataManager
-
-
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [node name="Window" type="CanvasLayer"]
 
@@ -132,11 +118,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Button" parent="TabContainer/Machines/HSplitContainer/ScrollContainer/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Doosan XLS 500"
-
 [node name="Panel" type="ScrollContainer" parent="TabContainer/Machines/HSplitContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -207,7 +188,8 @@ script = ExtResource("2_8in6r")
 script = ExtResource("3_ruxty")
 
 [node name="MachinePopulator" type="Node" parent="DataManager"]
-script = SubResource("GDScript_33hu3")
+script = ExtResource("4_exya6")
 
 [connection signal="button_down" from="TabContainer/Machines/Label2" to="DataManager/GetDataDirectory" method="onOpenDialog"]
 [connection signal="dir_selected" from="DataManager/GetDataDirectory" to="DataManager/GetDataDirectory" method="onGetResult"]
+[connection signal="dir_selected" from="DataManager/GetDataDirectory" to="DataManager/MachineLoader" method="refreshMachines"]

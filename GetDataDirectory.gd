@@ -4,7 +4,12 @@ extends FileDialog
 @onready var FilePathDisplay = $"../../TabContainer/Machines/Label2" as Button
 
 func _ready():
-	FilePathDisplay.text = DataManagerObj.loadDict()["dataPath"]
+	var data = DataManagerObj.loadDict() as Dictionary;
+	if data.is_empty():
+		if not DirAccess.dir_exists_absolute("user://machines"):
+			DirAccess.make_dir_absolute("user://machines")
+		data["dataPath"] = "user://machines"
+	FilePathDisplay.text = data["dataPath"]
 
 func onOpenDialog():
 	visible = true
